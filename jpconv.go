@@ -18,7 +18,7 @@ var dakuMap = map[string]string{
 	"ｳﾞ": "ヴ", "ﾜﾞ": "ヷ", "ｦﾞ": "ヺ",
 }
 
-var kanaMap = map[string]string{
+var kataMap = map[string]string{
 	"ｱ": "ア", "ｲ": "イ", "ｳ": "ウ", "ｴ": "エ", "ｵ": "オ",
 	"ｶ": "カ", "ｷ": "キ", "ｸ": "ク", "ｹ": "ケ", "ｺ": "コ",
 	"ｻ": "サ", "ｼ": "シ", "ｽ": "ス", "ｾ": "セ", "ｿ": "ソ",
@@ -41,10 +41,10 @@ var symbolMap = map[string]string{
 func HiraganaToKatakana(s string) string {
 	convCase := unicode.SpecialCase{
 		unicode.CaseRange{
-			0x3040,
-			0x309F,
+			0x3041,
+			0x3093,
 			[unicode.MaxCase]rune{
-				0x30A0 - 0x30FF,
+				0x30a1 - 0x3041,
 				0,
 				0,
 			},
@@ -57,11 +57,11 @@ func HiraganaToKatakana(s string) string {
 func KatakanaToHiragana(s string) string {
 	convCase := unicode.SpecialCase{
 		unicode.CaseRange{
-			0x30A0,
-			0x30FF,
+			0x30a1,
+			0x30f3,
 			[unicode.MaxCase]rune{
 				0,
-				0x3040 - 0x309F,
+				0x3041 - 0x30a1,
 				0,
 			},
 		},
@@ -77,7 +77,7 @@ func ZenkakuToHankaku(s string) string {
 	for k, v := range dakuMap {
 		s = strings.Replace(s, v, k, -1)
 	}
-	for k, v := range kanaMap {
+	for k, v := range kataMap {
 		s = strings.Replace(s, v, k, -1)
 	}
 	for k, v := range symbolMap {
@@ -94,7 +94,7 @@ func HankakuToZenkaku(s string) string {
 	for k, v := range dakuMap {
 		s = strings.Replace(s, k, v, -1)
 	}
-	for k, v := range kanaMap {
+	for k, v := range kataMap {
 		s = strings.Replace(s, k, v, -1)
 	}
 	for k, v := range symbolMap {
