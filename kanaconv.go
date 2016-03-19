@@ -1,4 +1,4 @@
-package jpconv
+package kanaconv
 
 import (
 	"strings"
@@ -119,6 +119,7 @@ var zenhanCase = unicode.SpecialCase{
 	},
 }
 
+// HiraganaToKatakana はひらがなをカタカナに変換する
 func HiraganaToKatakana(s string) string {
 	return strings.ToUpperSpecial(kanaCase, s)
 }
@@ -128,12 +129,12 @@ func KatakanaToHiragana(s string) string {
 	return strings.ToLowerSpecial(kanaCase, s)
 }
 
-// ZenkakuToHankaku は全角カタカナを半角に変換する
+// ZenkakuToHankaku は全角文字を半角に変換する
 func ZenkakuToHankaku(s string) string {
 	return zenkaku2hankaku.Replace(s)
 }
 
-// HankakuToZenkaku は半角カタカナを全角に変換する
+// HankakuToZenkaku は半角文字を全角に変換する
 func HankakuToZenkaku(s string) string {
 	return hankaku2zenkaku.Replace(s)
 }

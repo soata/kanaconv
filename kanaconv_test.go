@@ -1,4 +1,4 @@
-package jpconv
+package kanaconv
 
 import (
 	"testing"
