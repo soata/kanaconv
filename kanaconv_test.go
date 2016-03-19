@@ -67,3 +67,11 @@ func BenchmarkZenkakuToHankaku(b *testing.B) {
 		ZenkakuToHankaku("ゼンカクヲハンカクニヘンカンシマス")
 	}
 }
+
+func TestSmartConv(t *testing.T) {
+	var result string
+	result = SmartConv("ｶﾀｶﾅは全角に統一ＥＩＳＵＵＪＩ＋＝−，記号は半角に統一します")
+	if result != "カタカナは全角に統一EISUUJI+=-,記号は半角に統一します" {
+		t.Errorf("fail! %s", result)
+	}
+}

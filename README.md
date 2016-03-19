@@ -1,4 +1,4 @@
-# kanaconv [![Build Status](https://travis-ci.org/miiton/jpconv.svg?branch=master)](https://travis-ci.org/miiton/jpconv) [![GoDoc](https://godoc.org/github.com/miiton/kanaconv?status.svg)](https://godoc.org/github.com/miiton/kanaconv)
+# kanaconv [![Build Status](https://travis-ci.org/miiton/kanaconv.svg?branch=master)](https://travis-ci.org/miiton/jpconv) [![GoDoc](https://godoc.org/github.com/miiton/kanaconv?status.svg)](https://godoc.org/github.com/miiton/kanaconv)
 日本語のひらがなカタカナ、全角半角を変換するパッケージ written in Go
 
 ## Installation
