@@ -41,8 +41,8 @@ var symbolMap = map[string]string{
 func HiraganaToKatakana(s string) string {
 	convCase := unicode.SpecialCase{
 		unicode.CaseRange{
-			0x3041,
-			0x3093,
+			0x3040,
+			0x3094,
 			[unicode.MaxCase]rune{
 				0x30a1 - 0x3041,
 				0,
@@ -57,8 +57,8 @@ func HiraganaToKatakana(s string) string {
 func KatakanaToHiragana(s string) string {
 	convCase := unicode.SpecialCase{
 		unicode.CaseRange{
-			0x30a1,
-			0x30f3,
+			0x30a0,
+			0x30f4,
 			[unicode.MaxCase]rune{
 				0,
 				0x3041 - 0x30a1,
