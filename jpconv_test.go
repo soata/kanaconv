@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func Test_HiraganaToKatakana(t *testing.T) {
+func TestHiraganaToKatakana(t *testing.T) {
 	var result string
 	result = HiraganaToKatakana("ひらがなをカタカナにへんかんします")
 	if result != "ヒラガナヲカタカナニヘンカンシマス" {
@@ -16,7 +16,13 @@ func Test_HiraganaToKatakana(t *testing.T) {
 	}
 }
 
-func Test_KatakanaToHiragana(t *testing.T) {
+func BenchmarkHiraganaToKatakana(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HiraganaToKatakana("ひらがなをカタカナにへんかんします")
+	}
+}
+
+func TestKatakanaToHiragana(t *testing.T) {
 	var result string
 	result = KatakanaToHiragana("カタカナヲひらがなニヘンカンシマス")
 	if result != "かたかなをひらがなにへんかんします" {
@@ -28,7 +34,13 @@ func Test_KatakanaToHiragana(t *testing.T) {
 	}
 }
 
-func Test_HankakuToZenkaku(t *testing.T) {
+func BenchmarkKatakanaToHiragana(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		KatakanaToHiragana("カタカナヲひらがなニヘンカンシマス")
+	}
+}
+
+func TestHankakuToZenkaku(t *testing.T) {
 	var result string
 	result = HankakuToZenkaku("ﾊﾝｶｸｦｾﾞﾝｶｸﾆﾍﾝｶﾝｼﾏｽ")
 	if result != "ハンカクヲゼンカクニヘンカンシマス" {
@@ -36,10 +48,22 @@ func Test_HankakuToZenkaku(t *testing.T) {
 	}
 }
 
-func Test_ZenkakuToHankaku(t *testing.T) {
+func BenchmarkHankakuToZenkaku(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HankakuToZenkaku("ﾊﾝｶｸｦｾﾞﾝｶｸﾆﾍﾝｶﾝｼﾏｽ")
+	}
+}
+
+func TestZenkakuToHankaku(t *testing.T) {
 	var result string
 	result = ZenkakuToHankaku("ゼンカクヲハンカクニヘンカンシマス")
 	if result != "ｾﾞﾝｶｸｦﾊﾝｶｸﾆﾍﾝｶﾝｼﾏｽ" {
 		t.Error("fail!")
+	}
+}
+
+func BenchmarkZenkakuToHankaku(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		ZenkakuToHankaku("ゼンカクヲハンカクニヘンカンシマス")
 	}
 }
