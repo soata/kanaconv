@@ -42,9 +42,9 @@ func BenchmarkKatakanaToHiragana(b *testing.B) {
 
 func TestHankakuToZenkaku(t *testing.T) {
 	var result string
-	result = HankakuToZenkaku("ﾊﾝｶｸｦｾﾞﾝｶｸﾆﾍﾝｶﾝｼﾏｽ")
-	if result != "ハンカクヲゼンカクニヘンカンシマス" {
-		t.Error("fail!")
+	result = HankakuToZenkaku("ﾊﾝｶｸｦｾﾞﾝｶｸﾆﾍﾝｶﾝｼﾏｽ0123456789")
+	if result != "ハンカクヲゼンカクニヘンカンシマス０１２３４５６７８９" {
+		t.Errorf("fail! %s", result)
 	}
 }
 
@@ -56,9 +56,9 @@ func BenchmarkHankakuToZenkaku(b *testing.B) {
 
 func TestZenkakuToHankaku(t *testing.T) {
 	var result string
-	result = ZenkakuToHankaku("ゼンカクヲハンカクニヘンカンシマス")
-	if result != "ｾﾞﾝｶｸｦﾊﾝｶｸﾆﾍﾝｶﾝｼﾏｽ" {
-		t.Error("fail!")
+	result = ZenkakuToHankaku("ゼンカクヲハンカクニヘンカンシマス０１２３４５６７８９")
+	if result != "ｾﾞﾝｶｸｦﾊﾝｶｸﾆﾍﾝｶﾝｼﾏｽ0123456789" {
+		t.Errorf("fail! %s", result)
 	}
 }
 
