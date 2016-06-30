@@ -75,3 +75,9 @@ func TestSmartConv(t *testing.T) {
 		t.Errorf("fail! %s", result)
 	}
 }
+
+func BenchmarkSmartConv(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		SmartConv("ｶﾀｶﾅは全角に統一ＥＩＳＵＵＪＩ＋＝−，記号は半角に統一します")
+	}
+}
